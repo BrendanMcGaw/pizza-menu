@@ -80,20 +80,34 @@ const Menu = () => {
     return (
         <main className="menu">
             <h2>Our Menu</h2>
-            <Pizza />
-            <Pizza />
-            <Pizza />
-            <Pizza />
+            <Pizza
+                name="Pizza Spinaci"
+                ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+                photoName="pizzas/spinaci.jpg"
+                price={10}
+            />
+            <Pizza
+                name="Pizza Funghi"
+                ingredients="Tomato, mushrooms"
+                price={12}
+                photoName="pizzas/funghi.jpg"
+            />
         </main>
     );
 };
 
-const Pizza = () => {
+const Pizza = (props) => {
+    console.log(props);
+    // Destructuring props is cleaner then passing name.props etc..
+    const { name, ingredients, photoName, price } = props;
     return (
-        <div>
-            <img src="pizzas/spinaci.jpg" alt="Pizza spinaci" />
-            <h3>Pizza Margherita</h3>
-            <p>Tomato, mozarella, spinach, and ricotta cheese</p>
+        <div className="pizza">
+            <img src={photoName} alt={name} />
+            <div className="pizzas">
+                <h3>{name}</h3>
+                <p>{ingredients}</p>
+                <span>{price}</span>
+            </div>
         </div>
     );
 };
