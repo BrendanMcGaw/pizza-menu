@@ -50,10 +50,9 @@ function App() {
     return (
         //A function can only take 1 JSX Element wrapper *<div>*
         <div>
-            <h1>Hello React!!</h1>
-            <Pizza />
-            <Pizza />
-            <Pizza />
+            <Header />
+            <Menu />
+            <Footer />
         </div>
         // <div>
         //     <h1>Hello?</h1>
@@ -61,7 +60,23 @@ function App() {
     );
 }
 
-function Pizza() {
+const Header = () => {
+    return <h1>Fast React Pizza Co.</h1>;
+};
+
+const Menu = () => {
+    return (
+        <div>
+            <h2>Our Menu</h2>
+            <Pizza />
+            <Pizza />
+            <Pizza />
+            <Pizza />
+        </div>
+    );
+};
+
+const Pizza = () => {
     return (
         <div>
             <img src="pizzas/spinaci.jpg" alt="Pizza spinaci" />
@@ -69,7 +84,14 @@ function Pizza() {
             <p>Tomato, mozarella, spinach, and ricotta cheese</p>
         </div>
     );
-}
+};
+
+const Footer = () => {
+    return (
+        <footer>{new Date().toLocaleTimeString()} We're currently open!</footer>
+    );
+    // return React.createElement("footer", null, "We're currently open!");
+};
 
 // React v18 root render.
 const root = ReactDOM.createRoot(document.getElementById("root"));
