@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./index.css";
 
 const pizzaData = [
     {
@@ -49,7 +50,7 @@ const pizzaData = [
 function App() {
     return (
         //A function can only take 1 JSX Element wrapper *<div>*
-        <div>
+        <div className="container">
             <Header />
             <Menu />
             <Footer />
@@ -61,18 +62,29 @@ function App() {
 }
 
 const Header = () => {
-    return <h1>Fast React Pizza Co.</h1>;
+    // const style = {
+    //     color: "red",
+    //     fontSize: "64px",
+    //     textTransform: "uppercase",
+    // };
+    const style = {};
+    // to define an inline style, you must first allow for javascript to be mixed into the html using {} and then another {} must be used to create an object to list your styling.
+    return (
+        <header className="header">
+            <h1 style={style}>Fast React Pizza Co.</h1>
+        </header>
+    );
 };
 
 const Menu = () => {
     return (
-        <div>
+        <main className="menu">
             <h2>Our Menu</h2>
             <Pizza />
             <Pizza />
             <Pizza />
             <Pizza />
-        </div>
+        </main>
     );
 };
 
@@ -80,7 +92,7 @@ const Pizza = () => {
     return (
         <div>
             <img src="pizzas/spinaci.jpg" alt="Pizza spinaci" />
-            <h2>Pizza Margherita</h2>
+            <h3>Pizza Margherita</h3>
             <p>Tomato, mozarella, spinach, and ricotta cheese</p>
         </div>
     );
@@ -96,7 +108,7 @@ const Footer = () => {
     //     return <footer>We're currently open!</footer>;
     // }
     // return <footer>We're currently closed!</footer>;
-    return <footer>We're currently open!</footer>;
+    return <footer className="footer">We're currently open!</footer>;
     // return React.createElement("footer", null, "We're currently open!");
 };
 
